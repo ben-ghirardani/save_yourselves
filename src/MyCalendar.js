@@ -3,13 +3,17 @@ import Calendar from 'react-calendar';
 
 class MyCalendar extends Component {
 
-    state = {
-        date: new Date(),
+    constructor(props){
+        super(props);
+        this.state = {
+            date: new Date()
+        }
     }
 
     onChange = date => this.setState({ date })
 
     render() {
+        console.log(this.state.date)
         return(
             <div className="calendar">
                 <Calendar
@@ -18,8 +22,10 @@ class MyCalendar extends Component {
                 />
                 {/* replace break with CSS styling */}
                 <br></br>
-                <div>
-                    Section to show values from each day when day is clicked
+                {/* change this to a component */}
+                <div className="day-details">
+                    Day details
+                    {this.state.date.toString()}
                 </div>
             </div>
         );

@@ -1,3 +1,11 @@
+create-react-app
+npm i react-router-dom --save
+npm install react-calendar
+
+Delete contents of ‘src’ and ‘public’.
+Create index.html with ‘root’ into App. 
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
