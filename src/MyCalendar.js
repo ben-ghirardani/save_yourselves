@@ -6,7 +6,9 @@ class MyCalendar extends Component {
     constructor(props){
         super(props);
         this.state = {
-            date: new Date()
+            date: new Date(),
+            // an array of objects, dayMonthYear string and value from form
+            calendarNotes: []
         }
     }
 
@@ -24,8 +26,16 @@ class MyCalendar extends Component {
                 <br></br>
                 {/* change this to a component */}
                 <div className="day-details">
-                    Day details
-                    {this.state.date.toString()}
+                    {/* date string included time, slice 15 chars to limit data */}
+                    {this.state.date.toString().slice(0,15)}
+                    <form>
+                        <label>
+                            Data:
+                            {/* value should refer to the calendarNotes array, 
+                            and pull anything that's already there */}
+                            <input type="text" />
+                        </label>
+                    </form>
                 </div>
             </div>
         );
