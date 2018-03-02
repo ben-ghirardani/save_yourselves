@@ -8,11 +8,37 @@ class MyCalendar extends Component {
         this.state = {
             date: new Date(),
             // an array of objects, dayMonthYear string and value from form
-            calendarNotes: []
+            calendarNotes: null,
+            calenderNotesTest: []
         }
     }
 
+    // why does this work byt not the format below?
     onChange = date => this.setState({ date })
+        // onChange(date) {
+        //     this.setState({ date })
+        // }
+
+    onChangeData = data => this.setState({ calendarNotes: data })
+
+
+    handleChange(event) {
+        this.setState({ calendarNotes: "placeholder" })
+    } 
+
+    // create object with year, month, day
+    calendarEntry(dateString) {
+        let entry = {}
+        entry.year = dateString.subString(11, 15);
+        entry.month = dateString.slice(4, 6);
+        entry.day = dateString.slice(8, 9);
+        entry.message = "test message"
+    }    
+
+    formatDateString(dateString) {
+        let format = dateString.toString().slice(0, 15);
+        return format;
+    }
 
     render() {
         console.log(this.state.date)
@@ -24,18 +50,12 @@ class MyCalendar extends Component {
                 />
                 {/* replace break with CSS styling */}
                 <br></br>
-                {/* change this to a component */}
                 <div className="day-details">
                     {/* date string included time, slice 15 chars to limit data */}
-                    {this.state.date.toString().slice(0,15)}
-                    <form>
-                        <label>
-                            Data:
-                            {/* value should refer to the calendarNotes array, 
-                            and pull anything that's already there */}
-                            <input type="text" />
-                        </label>
-                    </form>
+                    {this.formatDateString(this.state.date)}
+                    
+                {/* add form component here */}
+
                 </div>
             </div>
         );
